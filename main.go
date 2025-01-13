@@ -54,7 +54,10 @@ func getLikedSongs(client *spotify.Client) []spotify.SavedTrack {
 	var allTracks []spotify.SavedTrack
 	offset := 0
 	limit := 50
+	pagenum := 0
 	for {
+		pagenum++
+		fmt.Printf("Page %d...\n", pagenum)
 		tracks, err := client.CurrentUsersTracksOpt(&spotify.Options{Offset: intPtr(offset), Limit: intPtr(limit)})
 		if err != nil {
 			log.Fatalf("failed to fetch liked songs: %v", err)
