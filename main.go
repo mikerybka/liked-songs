@@ -73,7 +73,7 @@ func getLikedSongs(client *spotify.Client) []spotify.SavedTrack {
 
 func main() {
 	if len(os.Args) < 2 {
-		log.Fatalf("Usage: %s", os.Args[0])
+		log.Fatalf("Usage: %s [outfile]", os.Args[0])
 	}
 	outfile := os.Args[1]
 
